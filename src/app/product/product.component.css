@@ -1,0 +1,21 @@
+table,th, td {
+    border: 1px solid red;
+}
+th{
+    background-color:salmon;
+    
+}
+.table{
+    text-align: center;
+    width: 80%;
+    margin-left: 100px;
+}
+h3{
+    text-align: center;
+    color: purple;
+    text-emphasis-style: bold;
+}
+.mose{
+    cursor: pointer;
+    pointer-events: visible;
+}

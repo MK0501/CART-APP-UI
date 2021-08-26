@@ -1,0 +1,25 @@
+.clsheading{
+    color:crimson;
+    font-style: inherit;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:rgb(49, 13, 13);
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.home{
+    background-color: turquoise;
+}

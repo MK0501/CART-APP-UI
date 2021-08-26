@@ -1,0 +1,16 @@
+<div class="log">
+<div class="box">
+    <div>
+        USERNAME : <input type="text" placeholder="username" required [(ngModel)]='uname'><br><br><br>
+        <!-- PASSWORD : <input type="password" placeholder="password" [(ngModel)]='pass'><br><br><br> -->
+        <div class="login">
+            <input type="button" value="login" class='point' id="btn" (click)="fn()" />
+        </div>
+        <span *ngIf="trueFalse" style="color: red;">
+            *wrong username try again!
+        </span><br><br>
+    </div>
+</div>  
+</div>
+
+

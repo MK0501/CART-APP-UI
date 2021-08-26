@@ -1,0 +1,12 @@
+.box{
+    width: fit-content;
+    border: 1px solid black;
+    text-align: end;
+    padding: 50px;
+    height: auto;
+    margin-left: 450px;
+    margin-top: 50px;
+}
+.alert-danger{
+    color: red;
+}

@@ -1,0 +1,41 @@
+<h3>list of products available</h3>
+<div>
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>In-Stock</th>
+        <th>actions</th>
+        <th>submit</th>
+      </tr>
+      <tr *ngFor="let pro of products" >
+        <td  (click)="buttons()" class="mose">
+          {{pro.product_id}}
+        </td>
+        <td  id="tableData">
+          <span [hidden]="pro.editCell"> {{pro.product_name}} </span>
+          <input type="text" style="width:50px;" [hidden]="!pro.editCell" [(ngModel)]="pro.product_name" placeholder="Enter product name">
+        </td>
+        <td>
+          <span [hidden]="pro.editCell"> {{pro.product_price}} </span>
+          <input type="text" style="width:70px;" [hidden]="!pro.editCell" [(ngModel)]="pro.product_price" placeholder="Enter product price">
+
+        </td>
+        <td>
+          <span [hidden]="pro.editCell"> {{pro.in_stock}} </span>
+          <input type="text" style="width:50px;" [hidden]="!pro.editCell" [(ngModel)]="pro.in_stock" placeholder="Enter instock">
+        </td>
+        <td>
+          <input type="button" value="delete" (click)="delete(pro)">/
+          <input type="button" value="Edit" (click)="editMode(pro)" [disabled]="buttonDisable">
+        </td>
+        <td>
+          <input type="submit" (click)="editData(pro)" [disabled]="!pro.editCell">
+        </td>
+      </tr>
+    </table>
+    <span *ngIf="temp">
+      <input type="button" value="add to cart">
+    </span>
+  </div>

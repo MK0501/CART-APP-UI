@@ -1,0 +1,35 @@
+<div class="box">
+  <form (ngSubmit)="sub()" #userForm="ngForm">
+    <div>
+      <label for="first_name">*First Name</label>
+      <input type="text" [(ngModel)]="user.first_name" id="fname" name="fname"
+        placeholder="Enter your first name" required #fname="ngModel">
+    </div>
+    <div [hidden]="!fname.pristine" class="alert-danger">*First Name is required</div><br><br>
+    <div>
+      <label for="middleName">Middle Name</label>
+      <input type="text" [(ngModel)]="user.middle_name" id="mname" name="mname"
+        placeholder="Enter your middle name" #name="ngModel">
+    </div><br><br>
+    <div class>
+      <label for="lastName">*Last Name</label>
+      <input type="text" [(ngModel)]="user.last_name" id="lname" name="lname" placeholder="Enter your last name" required #lname="ngModel" />
+    </div>
+    <div [hidden]="!lname.pristine" class="alert-danger">*Last Name is required</div><br><br>
+    <div>
+      <label for="mailId">*Email</label>
+      <input type="text" [(ngModel)]="user.email_id" [(ngModel)]="mailtxt" id="email" name="email" placeholder="Enter your email address" required #email="ngModel" (change)="mailCheck()" />
+      <div [hidden]="!email.pristine" class="alert-danger">*Email is required</div><br>
+      <span *ngIf="temp" style="color: red">
+        *email already exist<br>
+      </span><br>
+    </div>
+    <div>
+      <label for="mobile">*Mobile</label>
+      <input type="text" [(ngModel)]="user.mobile_number" id="mobile" name="mobile"
+        placeholder="Enter your mobile number" required #mobile="ngModel">
+      <div [hidden]="!mobile.pristine" class="alert-danger">*mobile number is required</div><br><br>
+    </div>
+    <button type="submit" [disabled]="!userForm.form.valid">Submit</button>
+  </form>
+</div>
