@@ -1,12 +1,13 @@
 <h1 class='clsheading'>Welcome to Projectkart</h1>
 <div>
     <ul>
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/create-user" (click)="usercreation()">New-User</a></li>
-        <li><a routerLink="/product">Products</a></li>
-        <li><a routerLink="/my-cart">my-cart</a></li>
+        <li><a routerLink="/login" class="fa fa-user-circle"> Login</a></li>
+        <li><a routerLink="/create-user" class="fa fa-user-plus"> New-User</a></li>
+        <li><a routerLink="/my-cart" class="fa fa-shopping-cart"> my-cart</a></li>
+
     </ul>
 </div>
 <div>
+  <br><br><br>
     <router-outlet></router-outlet>
 </div>
