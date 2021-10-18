@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     }
     if(this.flag){
       this.trueFalse=false;
-      this.router.navigateByUrl("/product")
+      this.router.navigateByUrl("product")
     }
     else{
       this.trueFalse=true;

@@ -1,41 +1,46 @@
 <h3>list of products available</h3>
 <div>
-    <table class="table">
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>In-Stock</th>
-        <th>actions</th>
-        <th>submit</th>
-      </tr>
-      <tr *ngFor="let pro of products" >
-        <td  (click)="buttons()" class="mose">
-          {{pro.product_id}}
-        </td>
-        <td  id="tableData">
-          <span [hidden]="pro.editCell"> {{pro.product_name}} </span>
-          <input type="text" style="width:50px;" [hidden]="!pro.editCell" [(ngModel)]="pro.product_name" placeholder="Enter product name">
-        </td>
-        <td>
-          <span [hidden]="pro.editCell"> {{pro.product_price}} </span>
-          <input type="text" style="width:70px;" [hidden]="!pro.editCell" [(ngModel)]="pro.product_price" placeholder="Enter product price">
+  <div>
+    <input type="text" class="form-control-sm" placeholder="search product name" [(ngModel)]="searchText">
+    <button type="submit" value="search" class="fa fa-search form-control-sm" (click)="search()"> search</button>
+  </div>
+  <br>
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>In-Stock</th>
+      <th>actions</th>
+    </tr>
+    <tr *ngFor="let pro of products" [hidden]="!tableData">
+      <td  (click)="buttons()" class="mose">
+        {{pro.productId }}
+      </td>
+      <td>
+        <span [hidden]="pro.editCell"> {{pro.productName}} </span>
+        <input type="text" class="form-control-sm" [hidden]="!pro.editCell" [(ngModel)]="pro.productName" placeholder="Enter product name">
+      </td>
+      <td>
+        <span [hidden]="pro.editCell"> {{pro.productPrice}} </span>
+        <input type="text" class="form-control-sm" [hidden]="!pro.editCell" [(ngModel)]="pro.productPrice" placeholder="Enter product price">
 
-        </td>
-        <td>
-          <span [hidden]="pro.editCell"> {{pro.in_stock}} </span>
-          <input type="text" style="width:50px;" [hidden]="!pro.editCell" [(ngModel)]="pro.in_stock" placeholder="Enter instock">
-        </td>
-        <td>
-          <input type="button" value="delete" (click)="delete(pro)">/
-          <input type="button" value="Edit" (click)="editMode(pro)" [disabled]="buttonDisable">
-        </td>
-        <td>
-          <input type="submit" (click)="editData(pro)" [disabled]="!pro.editCell">
-        </td>
-      </tr>
-    </table>
-    <span *ngIf="temp">
+      </td>
+      <td>
+        <span [hidden]="pro.editCell"> {{pro.inStock}} </span>
+        <input type="text" class="form-control-sm" [hidden]="!pro.editCell" [(ngModel)]="pro.inStock" placeholder="Enter instock">
+      </td>
+      <td>
+        <button type="submit" value="delete" class="fa fa-remove" (click)="delete(pro)"> delete</button> /
+        <button type="submit" value="Edit" class="fa fa-edit" (click)="editMode(pro)" [disabled]="buttonDisable" [hidden]="buttonDisable"> edit</button>
+        <button type="submit" class="fa fa-save" (click)="editData(pro)" [disabled]="!pro.editCell" [hidden]="!buttonDisable"> save</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" [hidden]="tableData" style="text-align: center">not available!</td>
+    </tr>
+  </table>
+  <span *ngIf="temp">
       <input type="button" value="add to cart">
     </span>
-  </div>
+</div>

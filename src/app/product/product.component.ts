@@ -11,23 +11,20 @@ import { Product } from './product';
 export class ProductComponent implements OnInit {
   products: Product[];
   product:Product;
+  searchText:any;
+  tableData:boolean;
   constructor(private router: Router, private productservice: ProductserviceService) {
     this.product=new Product();
   }
 
-  // getProducts() {
-  //   console.log("on getProduct()");
 
-  //   console.log(this.products);
-  // }
   ngOnInit(): void {
-    // console.log("on ngoninit");
-    // this.router.events.subscribe(value => {
-    //   this.getProducts();
-    // });
-    this.productservice.getProducts().subscribe(data => {
-      this.products = data;
-    });
+    this.tableData=true;
+    if (this.searchText ==null || undefined){
+      this.productservice.getProducts().subscribe(data => {
+        this.products = data;
+      });
+    }
   }
   temp = false;
   buttons() {
@@ -58,4 +55,23 @@ export class ProductComponent implements OnInit {
     pro.editCell=false;
     this.buttonDisable=false;
   }
+  search(){
+    this.tableData=true;
+    console.log(this.searchText);
+    if(this.searchText != (null || undefined)) {
+      if (this.searchText != "") {
+        this.productservice.getSearch(this.searchText).subscribe(data => {
+            this.products = data;
+            console.log("empty check"+data.length);
+           if(data.length == 0){
+            this.tableData = false;
+            console.log("not available" + this.tableData);
+          }
+        });
+      }
+    }
+    if(this.searchText == (null || undefined || "")){
+      this.productservice.getProducts().subscribe(data=>{this.products=data});
+    }
+}
 }

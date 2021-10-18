@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap";
+@import "~font-awesome";
+.main{
+    /* background-color: tomato; */
+    background-image: url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JhZGllbnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

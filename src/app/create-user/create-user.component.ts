@@ -47,11 +47,14 @@ export class CreateUserComponent implements OnInit {
     }
 
   }
-  req_flag:boolean=false;
-  req(val:any){
-    if(this.val.length<1){
+  req_flag:boolean=true;
+  req(val:any):boolean{
+    console.log("inside req");
+    if(val.length<1){
       this.req_flag=true;
+      return false;
     }
+    return true;
   }
 
 
